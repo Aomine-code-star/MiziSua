@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Page Background Image</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: skyblue; /* Replace with your image URL */
+            background-size: cover; /* Ensures it covers the whole page */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents repetition */
+            background-attachment: fixed; /* Keeps it fixed while scrolling */
+        }
+
+#chat-container {
+    width: 400px;
+    height: 300px;
+    border: 15px solid #5F9EA0;
+    overflow-y: scroll;
+    padding: 10px;
+background-color: lightpink;
+  }
+  #user-input {
+    width: 300px;
+    padding: 5px;
+color: purple;
+
+h3 {
+color: red;}
+    </style>
+
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Navigation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeSidebar()">×</a>
+        <a href="index.html">Back to main page</a>
+
+        <a href="contact.html">About</a>
+        <a href="appeditors.html">Code Editors</a>
+        
+    </div>
+
+    <!-- Main Content -->
+    <div id="main">
+        <button class="open-btn" onclick="openSidebar()">☰  Select</button>
+        <h1>Welcome!</h1>
+        <p>we have here some code editor apps and how you can use them and whats their use.
+
+just click the left upper corner and choose what you would like to know</p>
+    </div>
+
+    <script src="script.js"></script>
+<br>
+
+
+</p>
+<h1>Chat with our Mizi!</h1>
+<p>(Currently, Sua only allows Mizi to give answers with greetings, date, or time.)</p> 
+<p style="text-align: center;">
+  <img src="MIZI.jpeg" width="25%" alt="MIZI">
+
+<div id="chat-container">
+  </div>
+
+<input type="text" id="user-input" placeholder="Type your message...">
+<button onclick="sendMessage()">Send</button>
+
+<script>
+  const chatContainer = document.getElementById('chat-container');
+  const userInput = document.getElementById('user-input');
+
+  function sendMessage() {
+    const userMessage = userInput.value;
+    displayMessage(userMessage, 'user'); // Display user message
+
+    // Basic "AI" response (replace with actual AI logic)
+    const aiResponse = getAIResponse(userMessage);  //Call function to get response
+    displayMessage(aiResponse, 'ai');   //Display AI response
+
+    userInput.value = ''; // Clear input field
+  }
+
+
+  function getAIResponse(userMessage) {
+    // Very basic example -  replace with a real AI integration (API call)
+    userMessage = userMessage.toLowerCase(); //Simple case-insensitive
+
+    const greetings = ["hello", "hi", "hey"];
+    const questions = ["what is your name?", "how are you?", "what can you do?"];
+
+    if (greetings.includes(userMessage)) {
+      return "Hi there!";
+    } else if (questions.includes(userMessage)) {
+      if (userMessage === questions) return "I'm a simple AI assistant.";
+      else if (userMessage === questions) return "I'm doing well, thank you.";
+      else if (userMessage === questions) return "I can answer basic questions and have simple conversations.";
+    } else if (userMessage.includes("time")) {
+        const currentTime = new Date().toLocaleTimeString();
+        return "The current time is: " + currentTime;
+    } else if (userMessage.includes("date")) {
+        const currentDate = new Date().toLocaleDateString();
+        return "The current date is: " + currentDate;
+    }
+     else {
+      return "I'm sorry but Sua only allows me to answer Greetings, Date, or time. Try asking about the time or date, or a simple greeting.";
+    }
+  }
+
+  function displayMessage(message, sender) {
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add(sender); // Add class for styling if needed
+    messageDiv.textContent = message;
+    chatContainer.appendChild(messageDiv);
+
+    // Scroll to bottom to see the latest message
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+  }
+
+  userInput.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {  // Enter key pressed
+      sendMessage();
+    }
+  });
+
+</script>
+
+<h1>DIFFERENT AI ASSITANTS THAT CAN HELP YOU WITH YOUR WRITING</h1>
+<p>Remember! Ais should only be used to assist/help in tasks! Not replace humans!</p>
+
+<img src="Gemini.jpeg" width="100%">
+<a href="https://gemini.google.com/"><h2>Gemini</h2></a>
+<h5><b>Gemini</b> is a fictional AI writing assistant designed to provide comprehensive support for creative and professional writing. This AI can help generate content, offer stylistic suggestions, and ensure coherence and consistency in writing projects.</h5>
+     
+<img src="Copilot.jpeg" width="100%">
+ <a href="https://copilot.microsoft.com/"><h2>Copilot</h2></a>
+<h5><b>Copilot</b> is an AI companion created by Microsoft that assists with various tasks, including writing. It can help by generating ideas, providing relevant information, offering support, completing productivity-related tasks, and ensuring that your writing is accurate, engaging, and well-organized.</h5>
+   
+<img src="ChatGPT.png" width="100%">  
+ <a href="https://chatgpt.com/"><h2>ChatGPT</h2></a>
+<h5><b>ChatGPT</b> is an AI language model developed by OpenAI. It can assist with writing by generating text based on prompts, answering questions, brainstorming ideas, and offering suggestions for improving your writing style and content.</h5>
+
+<img src="Quillbot.png" width="100%">
+      <a href="https://quillbot.com/ai-content-detector"><h2>QuillBot</h2></a>
+<h5><b>Quillbot</b> is an AI-powered paraphrasing tool that helps writers by rephrasing sentences, improving clarity, and enhancing the overall quality of their writing. It can also assist with grammar corrections and synonym suggestions to make writing more polished and professional.</h5>
+
+<img src="Grammarly.png" width="100%">
+      <a href="https://www.grammarly.com/"><h2>Grammarly</h2></a>
+<h5><b>Grammarly</b> is an AI writing assistant that provides real-time grammar, spelling, and punctuation corrections. It also offers stylistic suggestions, clarity improvements, and tone adjustments to help writers produce error-free and effective writing.</h5>
+
+<h3 style="color: red;">Remember! Ais should only be used to assist/help in tasks! Not replace humans!</h3>
+</body>
+</html>
